@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.17.1",
     "bootswatch": "^4.0.0",
+    "npm": "^5.8.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
