@@ -13,6 +13,7 @@ import {
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {userLogin} from '../actions/auth.actions'
+import {NavLink} from "react-router-dom";
 
 class Login extends Component {
     state = {
@@ -63,7 +64,7 @@ class Login extends Component {
                                 </Alert>
                             ) : null}
                             {this.renderProfile()}
-                            <a href="/signup">Not a member?</a>
+                            <NavLink to="/signup">Not a member</NavLink>
                         </Form>
                     </Col>
                 </Row>
