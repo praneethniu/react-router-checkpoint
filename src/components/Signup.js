@@ -38,6 +38,7 @@ export class Signup extends Component {
       let newUser = {name, email, company, phone, password, address}
       console.log('newUser', newUser)
       this.props.userSignup(newUser)
+        this.props.history.push('/')
     }
   }
 
@@ -148,21 +149,15 @@ export class Signup extends Component {
                   <Alert color="danger">Passwords do not match</Alert>
                 ) : null}
               </FormGroup>
-                {this.submit()}
+                <Button color="primary" type="submit">
+                    Submit
+                </Button>
             </Form>
           </Col>
         </Row>
       </Container>
     )
   }
-    submit = () => {
-        const {history, userSignup} = this.props
-        const {isValid} = this.state
-        return <Button color="primary" type="submit" onClick={() => {
-            userSignup(this.state)
-             isValid ? history.push('/') : null
-        }}>Submit</Button>
-    }
 }
 
 function mapDispatchToProps(dispatch) {
