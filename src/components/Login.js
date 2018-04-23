@@ -22,7 +22,7 @@ class Login extends Component {
     }
 
     render() {
-        console.log('props', this.props.showLoginError)
+        console.log('props', this.props)
 
         return (
             <Container className="main-wrapper">
@@ -76,15 +76,15 @@ class Login extends Component {
         const {history, userLogin} = this.props
         const {email, password, showLoginError} = this.state
         return <Button className="mr-3" type="submit" color="primary" onClick={() => {
-            userLogin(this.state)
-            !showLoginError ? history.push('/profile') : null
+            userLogin(this.state, this.props.history)
         }}>Submit</Button>
     }
 }
 
 function mapStateToProps(state) {
     return {
-        showLoginError: state.auth.showLoginError
+        showLoginError: state.auth.showLoginError,
+        isloggedIn: state.auth.isloggedIn
     }
 }
 

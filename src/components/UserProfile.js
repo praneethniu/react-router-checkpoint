@@ -9,10 +9,6 @@ import {connect} from 'react-redux'
 const UserProfile = (props) => {
     console.log('up props', props)
     const {showLoginError, history} = props
-    if(showLoginError === true)
-    {
-        history.goBack()
-    }
     return (
         <div>
             <Container>

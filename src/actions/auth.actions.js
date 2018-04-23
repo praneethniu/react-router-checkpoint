@@ -10,7 +10,7 @@ export const USER_LOGOUT = 'USER_LOGOUT'
 
 const BASE_URL = 'http://localhost:8082'
 
-export const userLogin = ({email, password}) => {
+export const userLogin = ({email, password}, history) => {
   return async (dispatch) => {
     try {
       dispatch({type: USER_LOGIN_PENDING})
@@ -24,6 +24,7 @@ export const userLogin = ({email, password}) => {
         type: USER_LOGIN_SUCCESS,
         payload: userObject
       })
+        history.push('/profile')
     } catch(err) {
       dispatch({
         type: USER_LOGIN_FAILED,
