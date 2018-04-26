@@ -62,7 +62,7 @@ export class TopNav extends React.Component {
 function mapStateToProps(state) {
     console.log('state redux', state)
     return {
-        isloggedIn: state.auth.isloggedIn
+        isloggedIn: Object.keys(state.auth.user).length > 0 
     }
 }
 

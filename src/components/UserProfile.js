@@ -35,6 +35,7 @@ const UserProfile = (props) => {
 }
 
 function mapStateToProps(state) {
+    console.log('user', state.auth.user)
     return {
         user: state.auth.user,
         showLoginError: state.auth.showLoginError

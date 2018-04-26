@@ -21,6 +21,11 @@ class Login extends Component {
         password: ''
     }
 
+    handleSubmit = (e) => {
+        e.preventDefault()
+        this.props.uLogin(this.state, this.props.history)
+    }
+
     render() {
         console.log('props', this.props)
 
@@ -35,7 +40,7 @@ class Login extends Component {
                             boxShadow: '3px 3px 47px 0px rgba(0,0,0,0.5)'
                         }}
                     >
-                        <Form>
+                        <Form onSubmit={this.handleSubmit}>
                             <FormGroup>
                                 <Label for="email-field">Email</Label>
                                 <Input
@@ -63,7 +68,7 @@ class Login extends Component {
                                     Either your email or password is incorrect. Please try again.
                                 </Alert>
                             ) : null}
-                            {this.renderProfile()}
+                            <Button className="mr-3" type="submit" color="primary">Submit</Button>
                             <NavLink to="/signup">Not a member</NavLink>
                         </Form>
                     </Col>
@@ -72,25 +77,18 @@ class Login extends Component {
         )
     }
 
-    renderProfile = () => {
-        const {history, userLogin} = this.props
-        const {email, password, showLoginError} = this.state
-        return <Button className="mr-3" type="submit" color="primary" onClick={() => {
-            userLogin(this.state, this.props.history)
-        }}>Submit</Button>
-    }
 }
 
 function mapStateToProps(state) {
     return {
         showLoginError: state.auth.showLoginError,
-        isloggedIn: state.auth.isloggedIn
+        isloggedIn: Object.keys(state.auth.user).length > 0
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        userLogin: bindActionCreators(userLogin, dispatch)
+        uLogin: bindActionCreators(userLogin, dispatch)
     }
 }
 
