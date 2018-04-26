@@ -12,7 +12,7 @@ import {
 } from 'reactstrap'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import {userLogin} from '../actions/auth.actions'
+import {userLogin, userLogout} from '../actions/auth.actions'
 import {NavLink} from "react-router-dom";
 
 class Login extends Component {
@@ -26,9 +26,8 @@ class Login extends Component {
         this.props.uLogin(this.state, this.props.history)
     }
 
-    render() {
-        console.log('props', this.props)
 
+    render() {
         return (
             <Container className="main-wrapper">
                 <Row style={{marginTop: '15vh'}}>
@@ -88,7 +87,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        uLogin: bindActionCreators(userLogin, dispatch)
+        uLogin: bindActionCreators(userLogin, dispatch),
+        uLogout: bindActionCreators(userLogout, dispatch)
     }
 }
 

@@ -1,16 +1,15 @@
-import React, {Component} from 'react'
+import React from 'react'
 import Login from './components/Login'
 import TopNav from './components/TopNav'
 import './App.css'
-import {Link, Redirect, Route, Switch} from "react-router-dom";
+import {Link, Route, Switch} from "react-router-dom";
 import UserProfile from "./components/UserProfile";
 import Signup from "./components/Signup";
 
-export const App = () => {
+const App = () => {
     return (
         <div>
             <TopNav/>
-            <Link to="/">Login</Link>
             <Switch>
                 <Route exact path={"/"} component={Login}/>
                 <Route exact path={"/profile"} component={UserProfile}/>

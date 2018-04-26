@@ -7,8 +7,6 @@ import {
 import {connect} from 'react-redux'
 
 const UserProfile = (props) => {
-    console.log('up props', props)
-    const {showLoginError, history} = props
     return (
         <div>
             <Container>
